@@ -1,8 +1,12 @@
+import Register from "../../Pageobject/Register";
+///////////////// { CONTOH PENGGUNAAN TANPA PAGE FUNCTION } ///////////////
 describe("Verify Register Functionality - Negative", () => {
-  it.skip("Registration Failed - Email Already Used", () => {
+  beforeEach(() => {
     cy.visit(
       "https://magento.softwaretestingboard.com/customer/account/create/"
     );
+  });
+  it.skip("Registration Failed - Email Already Used", () => {
     cy.get("#firstname").type("hidayatullah");
     cy.get("#lastname").type("hafis");
     cy.get("#email_address").type("pab4@gmail.com");
@@ -13,10 +17,7 @@ describe("Verify Register Functionality - Negative", () => {
     ).click();
     cy.get(".message-error > div").should("be.visible");
   });
-  it("Registration Failed - Password Weak", () => {
-    cy.visit(
-      "https://magento.softwaretestingboard.com/customer/account/create/"
-    );
+  it.skip("Registration Failed - Password Weak", () => {
     cy.get("#firstname").type("titi");
     cy.get("#lastname").type("dj");
     cy.get("#email_address").type("titidj@gmail.com");
@@ -28,9 +29,6 @@ describe("Verify Register Functionality - Negative", () => {
     cy.get("#password-error").should("be.visible");
   });
   it.skip("Registration Failed - All Fields Are Empty", () => {
-    cy.visit(
-      "https://magento.softwaretestingboard.com/customer/account/create/"
-    );
     cy.get(
       "#form-validate > .actions-toolbar > div.primary > .action > span"
     ).click();
@@ -41,9 +39,6 @@ describe("Verify Register Functionality - Negative", () => {
     cy.get("#password-confirmation-error").should("be.visible");
   });
   it.skip("Registration Failed - Email Field is Empty", () => {
-    cy.visit(
-      "https://magento.softwaretestingboard.com/customer/account/create/"
-    );
     cy.get("#firstname").type("hali");
     cy.get("#lastname").type("halim");
     cy.get("#password").type("h4f1sh1d4y4@12");
@@ -54,9 +49,6 @@ describe("Verify Register Functionality - Negative", () => {
     cy.get("#email_address-error").should("be.visible");
   });
   it.skip("Registration Failed - Password Field is Empty", () => {
-    cy.visit(
-      "https://magento.softwaretestingboard.com/customer/account/create/"
-    );
     cy.get("#firstname").type("hali");
     cy.get("#lastname").type("halim");
     cy.get("#email_address").type("pab7@gmail.com");
@@ -67,26 +59,23 @@ describe("Verify Register Functionality - Negative", () => {
     cy.get("#password-error").should("be.visible");
   });
 });
+/////////////////////////////////////////////////////////////////////
+///////////////// { CONTOH PENGGUNAAN PAGE FUNCTION } ///////////////
 describe("Verify Register Functionality - Positive", () => {
-  it.skip("Register Successfully", () => {
+  it("Register Successfully", () => {
     cy.visit(
       "https://magento.softwaretestingboard.com/customer/account/create/"
     );
-    cy.get("#firstname").type("hidayatullah");
-    cy.get("#lastname").type("hafis");
-    cy.get("#email_address").type("pab4@gmail.com");
-    cy.get("#password").type("strength@123");
-    cy.get("#password-confirmation").type("strength@123");
-    cy.get(
-      "#form-validate > .actions-toolbar > div.primary > .action > span"
-    ).click();
-    cy.get(".message-success > div").should("be.visible");
-    cy.get(".base").should("have.text", "My Account");
+    Register.selectDaftar(
+      "upin",
+      "ipin",
+      "upinipin@gmail.com",
+      "upin@123_2608",
+      "upin@123_2608"
+    );
   });
+  /////////////////////////////////////////////////////////////////////
   it.skip("Registration Successful - Password Maximum Length", () => {
-    cy.visit(
-      "https://magento.softwaretestingboard.com/customer/account/create/"
-    );
     cy.get("#firstname").type("Hali12");
     cy.get("#lastname").type("Halim12");
     cy.get("#email_address").type("momsky@gmail.com");
