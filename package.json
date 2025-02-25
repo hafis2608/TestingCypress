@@ -16,7 +16,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "register_test": "npx cypress run --browser chrome --spec 'cypress/e2e/magento/register.cy.js'"
+    "register_test": "npx cypress run --browser chrome --spec 'cypress/e2e/1-getting-started/register.cy.js'"
   },
   "devDependencies": {
     "cypress": "^14.0.3"
