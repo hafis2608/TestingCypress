@@ -91,7 +91,7 @@ describe("Verify Register Functionality - Positive", () => {
   });
 
   ///////////////////////{PENGGUNAAN CUSTOM COMMAND}////////////////////
-  it("Registration Successful - Using Custom Commmand", () => {
+  it.skip("Registration Successful - Using Custom Commmand", () => {
     cy.visit(
       "https://magento.softwaretestingboard.com/customer/account/create/"
     );
@@ -103,5 +103,22 @@ describe("Verify Register Functionality - Positive", () => {
       "pysch@pat579090"
     );
   });
+  //////////////////////////////////////////////////////////////////////////
+
+  ///////////////////////{PENGGUNAAN FIXTURES}////////////////////
+  it("Registration Successful - Using Fixtures", () => {
+    cy.visit(
+      "https://magento.softwaretestingboard.com/customer/account/create/"
+    );
+    cy.fixture("user").then((user) => {
+      cy.registrasi2(
+        user.firstname,
+        user.lastname,
+        user.email,
+        user.password,
+        user.password_confirmation
+      );
+    });
+  });
+  //////////////////////////////////////////////////////
 });
-//////////////////////////////////////////////////////////////////////////
