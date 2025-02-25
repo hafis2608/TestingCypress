@@ -60,21 +60,23 @@ describe("Verify Register Functionality - Negative", () => {
   });
 });
 /////////////////////////////////////////////////////////////////////
+
 ///////////////// { CONTOH PENGGUNAAN PAGE FUNCTION } ///////////////
 describe("Verify Register Functionality - Positive", () => {
-  it("Register Successfully", () => {
+  it.skip("Register Successfully", () => {
     cy.visit(
       "https://magento.softwaretestingboard.com/customer/account/create/"
     );
     Register.selectDaftar(
       "upin",
       "ipin",
-      "upinipin@gmail.com",
+      "upinipin12@gmail.com",
       "upin@123_2608",
       "upin@123_2608"
     );
   });
-  /////////////////////////////////////////////////////////////////////
+  ///////////////////////////////////////////////////////////////////////
+
   it.skip("Registration Successful - Password Maximum Length", () => {
     cy.get("#firstname").type("Hali12");
     cy.get("#lastname").type("Halim12");
@@ -87,4 +89,19 @@ describe("Verify Register Functionality - Positive", () => {
     cy.get(".message-success > div").should("be.visible");
     cy.url().should("include", "/customer/account");
   });
+
+  ///////////////////////{PENGGUNAAN CUSTOM COMMAND}////////////////////
+  it("Registration Successful - Using Custom Commmand", () => {
+    cy.visit(
+      "https://magento.softwaretestingboard.com/customer/account/create/"
+    );
+    cy.registrasi(
+      "manajemen",
+      "informatika",
+      "informatika@gmail.com",
+      "pysch@pat579090",
+      "pysch@pat579090"
+    );
+  });
 });
+//////////////////////////////////////////////////////////////////////////
