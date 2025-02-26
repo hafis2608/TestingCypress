@@ -1,0 +1,24 @@
+{
+  "name": "testingcypress",
+  "version": "1.0.0",
+  "description": "M. Gilang Nur Faris = Login \r || Ize Ronauli Sitorus = Proceed to Checkout and Update Shopping Cart\r || Hafis Hidayattullah = Create Account\r || Aloysius Riandika Hermawan = My Account > Edit Account Information & Edit Access\r || Shabrina = Choose product and Update Shopping Cart",
+  "homepage": "https://github.com/hafis2608/TestingCypress#readme",
+  "bugs": {
+    "url": "https://github.com/hafis2608/TestingCypress/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hafis2608/TestingCypress.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "register_test": "npx cypress run --browser chrome --spec 'cypress/e2e/1-getting-started/register.cy.js'"
+  },
+  "devDependencies": {
+    "cypress": "^14.0.3"
+  }
+}

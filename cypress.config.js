@@ -1,9 +1,12 @@
 module.exports = {
   e2e: {
-    baseUrl: 'https://magento.softwaretestingboard.com',
-    watchForFileChanges: false, // Disable auto reload on file changes
+    // baseUrl "https://magento.softwaretestingboard.com/",
+    // env : { uat : 'test_uat', prod: 'test_prod }
     setupNodeEvents(on, config) {
       // implement node event listeners here
+      //
     },
+    // defaultCommandTimeout: 300
+    // screenshotOnRunFailure: false
   },
 };
