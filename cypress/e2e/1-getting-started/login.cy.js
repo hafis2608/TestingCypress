@@ -13,4 +13,10 @@ describe("Verify Login - Negatif", () => {
     cy.get("#pass").type("passwordakun");
     cy.get("#send2").click();
   });
+  it("Failed Login - Password incorrect", () => {
+    cy.visit("https://magento.softwaretestingboard.com/customer/account/login");
+    cy.get("#email").type("laladipsi@mail.com");
+    cy.get("#pass").type("passwordakun");
+    cy.get("#send2").click();
+  });
 });
