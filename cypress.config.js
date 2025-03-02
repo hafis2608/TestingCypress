@@ -1,6 +1,4 @@
-const { defineConfig } = require("cypress");
-
-module.exports = defineConfig({
+module.exports = {
   e2e: {
     // baseUrl "https://magento.softwaretestingboard.com/",
     // env : { uat : 'test_uat', prod: 'test_prod }
@@ -11,4 +9,4 @@ module.exports = defineConfig({
     // defaultCommandTimeout: 300
     // screenshotOnRunFailure: false
   },
-});
+};
